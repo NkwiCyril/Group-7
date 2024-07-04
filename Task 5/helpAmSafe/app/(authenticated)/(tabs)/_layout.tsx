@@ -2,7 +2,6 @@ import React from "react";
 import { StatusBar } from "react-native"; // Import StatusBar from react-native
 
 import CustomHeader from "@/components/CustomHeader";
-import Colors from "@/constants/Colors";
 import { FontAwesome } from "@expo/vector-icons";
 import { BlurView } from "expo-blur";
 import { Tabs } from "expo-router";
@@ -13,14 +12,12 @@ const Layout = () => {
       {/* Set StatusBar properties */}
       <StatusBar
         barStyle="dark-content" // Specify light or dark content
-        backgroundColor={Colors.background} // Set background color
         translucent={false} // Set to false for opaque StatusBar
       />
 
       {/* Rest of your component */}
       <Tabs
         screenOptions={{
-          tabBarActiveTintColor: Colors.primary,
           tabBarBackground: () => (
             <BlurView
               intensity={100}
@@ -46,7 +43,7 @@ const Layout = () => {
         }}
       >
         <Tabs.Screen
-          name="home"
+          name="Home"
           options={{
             title: "Home",
             tabBarIcon: ({ size, color }) => (
@@ -59,39 +56,30 @@ const Layout = () => {
         <Tabs.Screen
           name="invest"
           options={{
-            title: "Invest",
+            title: "Recover",
             tabBarIcon: ({ size, color }) => (
               <FontAwesome name="line-chart" size={size} color={color} />
             ),
           }}
         />
         <Tabs.Screen
-          name="transfers"
+          name="Recover"
           options={{
-            title: "Transfers",
+            title: "Recover",
             tabBarIcon: ({ size, color }) => (
               <FontAwesome name="exchange" size={size} color={color} />
             ),
           }}
         />
         <Tabs.Screen
-          name="crypto"
+          name="Map"
           options={{
-            title: "Crypto",
+            title: "Map",
             tabBarIcon: ({ size, color }) => (
               <FontAwesome name="bitcoin" size={size} color={color} />
             ),
             header: () => <CustomHeader />,
             headerTransparent: true,
-          }}
-        />
-        <Tabs.Screen
-          name="lifestyle"
-          options={{
-            title: "Lifestyle",
-            tabBarIcon: ({ size, color }) => (
-              <FontAwesome name="th" size={size} color={color} />
-            ),
           }}
         />
       </Tabs>

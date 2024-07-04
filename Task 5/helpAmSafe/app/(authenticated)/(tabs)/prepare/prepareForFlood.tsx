@@ -1,12 +1,12 @@
 import { View, Text } from 'react-native'
 import React from 'react'
 
-const invest = () => {
+const PrepareForFlood = () => {
   return (
     <View>
-      <Text>invest</Text>
+      <Text>PrepareForFlood</Text>
     </View>
   )
 }
 
-export default invest
+export default PrepareForFlood

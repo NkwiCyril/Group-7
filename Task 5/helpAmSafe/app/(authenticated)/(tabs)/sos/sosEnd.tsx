@@ -1,12 +1,12 @@
 import { View, Text } from 'react-native'
 import React from 'react'
 
-const lifestyle = () => {
+const SosEnd = () => {
   return (
     <View>
-      <Text>lifestyle</Text>
+      <Text>SosEnd</Text>
     </View>
   )
 }
 
-export default lifestyle
+export default SosEnd

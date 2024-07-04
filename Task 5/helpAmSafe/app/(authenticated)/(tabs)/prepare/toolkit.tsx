@@ -1,12 +1,12 @@
 import { View, Text } from 'react-native'
 import React from 'react'
 
-const Home = () => {
+const Toolkit = () => {
   return (
     <View>
-      <Text>Home</Text>
+      <Text>Toolkit</Text>
     </View>
   )
 }
 
-export default Home
+export default Toolkit

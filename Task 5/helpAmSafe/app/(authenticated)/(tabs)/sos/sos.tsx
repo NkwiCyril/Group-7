@@ -1,12 +1,12 @@
 import { View, Text } from 'react-native'
 import React from 'react'
 
-const transfers = () => {
+const Sos = () => {
   return (
     <View>
-      <Text>transfers</Text>
+      <Text>Sos</Text>
     </View>
   )
 }
 
-export default transfers
+export default Sos
