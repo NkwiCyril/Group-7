@@ -28,8 +28,11 @@ import Colors from "@/constants/Colors";
 const CELL_COUNT = 6;
 
 const Page = () => {
-   // We need to check  if we are signing in or verifying a signing up on that screen
-    const { phone, signin } = useLocalSearchParams<{ phone: string, signin: string }>();
+  // We need to check  if we are signing in or verifying a signing up on that screen
+  const { phone, signin } = useLocalSearchParams<{
+    phone: string;
+    signin: string;
+  }>();
 
   //Create a code input
   const [code, setCode] = useState("");
@@ -48,7 +51,7 @@ const Page = () => {
     if (code.length === 6)
       //Every time code changes check the size of the verification code which is 6
       //Verify the code
-      // console.log(code)
+      console.log(code)
       signin ? verifySignIn() : verifyCode();
 
     // verify the code
