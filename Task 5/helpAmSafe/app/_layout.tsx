@@ -8,6 +8,9 @@ import "react-native-reanimated";
 import Colors from "@/constants/Colors";
 import * as SecureStore from "expo-secure-store";
 import { ClerkProvider, useAuth } from "@clerk/clerk-expo";
+import { GestureHandlerRootView } from "react-native-gesture-handler";
+
+// const queryClient = new QueryClient();
 
 // Clerk needs the publishable key
 const CLERK_PUBLISHABLE_KEY = process.env.EXPO_PUBLIC_CLERK_PUBLISHABLE_KEY;
@@ -107,7 +110,9 @@ const RootLayoutNav = () => {
       publishableKey={CLERK_PUBLISHABLE_KEY!}
       tokenCache={tokenCache}
     >
-      <InitialLayout />
+       <GestureHandlerRootView style={{ flex: 1 }}>
+          <InitialLayout />
+       </GestureHandlerRootView>
      </ClerkProvider>
   );
 };
