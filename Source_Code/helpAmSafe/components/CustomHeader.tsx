@@ -15,36 +15,11 @@ import {
 import { Ionicons } from "@expo/vector-icons";
 import { Link } from "expo-router";
 
-const Banner = () => {
-  const openLocationSettings = () => {
-    Linking.openURL("app-settings:").catch(() => {
-      Alert.alert("Unable to open settings");
-    });
-  };
-
-  return (
-    <View style={styles.banner}>
-      <Text style={styles.title}>Welcome!</Text>
-      <TouchableOpacity
-        style={styles.myLocation}
-        onPress={openLocationSettings}
-      >
-        <Ionicons
-          name="location-outline"
-          size={20}
-          color={Colors.white}
-        ></Ionicons>
-        <Text style={styles.subtitle}>Add your location</Text>
-      </TouchableOpacity>
-    </View>
-  );
-};
-
 const CustomHomeHeader = () => {
   //Destructure top to avoid the safeAread
   return (
     <View>
-      <View style={styles.container}>
+      {/* <View style={styles.container}>
         <TouchableOpacity
           style={styles.menu}
           onPress={() => {
@@ -53,7 +28,7 @@ const CustomHomeHeader = () => {
         >
           <Ionicons name="menu" size={30} />
         </TouchableOpacity>
-      </View>
+      </View> */}
     </View>
   );
 };

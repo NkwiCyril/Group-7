@@ -41,6 +41,7 @@ const LocationSearch = () => {
         styles={{
           container: {
             flex: 0,
+            zIndex: 1, // Ensure the autocomplete input is above the map
           },
           textInput: {
             backgroundColor: Colors.gray,
@@ -83,6 +84,7 @@ const styles = StyleSheet.create({
     color: '#fff',
     fontWeight: 'bold',
     fontSize: 16,
+    
   },
   boxIcon: {
     position: 'absolute',

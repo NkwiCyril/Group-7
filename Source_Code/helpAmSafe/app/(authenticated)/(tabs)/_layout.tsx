@@ -3,7 +3,7 @@ import { StatusBar, Text, View, StyleSheet } from "react-native";
 import CustomHeader from "@/components/CustomHeader";
 import { FontAwesome, Ionicons } from "@expo/vector-icons";
 import { BlurView } from "expo-blur";
-import { Stack, Link, Tabs } from "expo-router";
+import { Link, Tabs } from "expo-router";
 import CustomHomeHeader from "@/components/home/CustomHomeHeader";
 import Colors from "@/constants/Colors";
 
