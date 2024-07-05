@@ -1,12 +1,12 @@
 import { View, Text } from 'react-native'
 import React from 'react'
 
-const Home = () => {
+const Uploading = () => {
   return (
     <View>
-      <Text>This is the home page</Text>
+      <Text>Uploading</Text>
     </View>
   )
 }
 
-export default Home
+export default Uploading

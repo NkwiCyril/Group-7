@@ -1,12 +1,12 @@
 import { View, Text } from 'react-native'
 import React from 'react'
 
-const Home = () => {
+const SosCall = () => {
   return (
     <View>
-      <Text>This is the home page</Text>
+      <Text>SosCall</Text>
     </View>
   )
 }
 
-export default Home
+export default SosCall
