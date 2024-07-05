@@ -4,7 +4,7 @@ import { StatusBar } from "react-native"; // Import StatusBar from react-native
 import CustomHeader from "@/components/CustomHeader";
 import { FontAwesome } from "@expo/vector-icons";
 import { BlurView } from "expo-blur";
-import { Tabs } from "expo-router";
+import { Stack, Tabs } from "expo-router";
 import CustomHomeHeader from "@/components/home/CustomHomeHeader";
 import Colors from "@/constants/Colors";
 

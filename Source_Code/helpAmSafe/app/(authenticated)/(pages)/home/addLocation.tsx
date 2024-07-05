@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { View, Text, TextInput, StyleSheet, TouchableOpacity, Image, ScrollView, Alert } from 'react-native';
 import { Picker } from '@react-native-picker/picker';
 import * as ImagePicker from 'expo-image-picker';
+import Colors from '@/constants/Colors';
 
 const AddLocation: React.FC = () => {
   const [eventType, setEventType] = useState<string>('');
@@ -32,7 +33,7 @@ const AddLocation: React.FC = () => {
             <Picker.Item label="Select the event you are sharing" value="" />
             <Picker.Item label="Fire" value="fire" />
             <Picker.Item label="Flood" value="flood" />
-            <Picker.Item label="Accident" value="accident" />
+            <Picker.Item label="Volcanic Activity" value="accident" />
             {/* Add more event types as needed */}
           </Picker>
         </View>
@@ -46,13 +47,13 @@ const AddLocation: React.FC = () => {
           value={location}
           onChangeText={setLocation}
         />
-        <TouchableOpacity>
+        {/* <TouchableOpacity>
           <Text style={styles.googleMapsLink}>Search with google maps</Text>
-        </TouchableOpacity>
+        </TouchableOpacity> */}
       </View>
 
       <View style={styles.formGroup}>
-        <Text style={styles.label}>Picture</Text>
+        <Text style={styles.label}>Photo</Text>
         <TouchableOpacity onPress={pickImage}>
           <Text style={styles.addPhotoText}>Add Photo</Text>
         </TouchableOpacity>
@@ -90,8 +91,10 @@ const styles = StyleSheet.create({
     borderRadius: 4,
   },
   picker: {
-    height: 50,
+    height: 200,
     width: '100%',
+    color: Colors.dark,
+    
   },
   input: {
     height: 50,
@@ -101,7 +104,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 8,
   },
   googleMapsLink: {
-    color: '#008cba',
+    color: Colors.green,
     marginTop: 8,
   },
   imagesContainer: {
@@ -116,11 +119,11 @@ const styles = StyleSheet.create({
     marginBottom: 10,
   },
   addPhotoText: {
-    color: '#008cba',
+    color: Colors.green,
     marginBottom: 10,
   },
   postButton: {
-    backgroundColor: '#6200ee',
+    backgroundColor: Colors.purple,
     paddingVertical: 15,
     borderRadius: 8,
     alignItems: 'center',
