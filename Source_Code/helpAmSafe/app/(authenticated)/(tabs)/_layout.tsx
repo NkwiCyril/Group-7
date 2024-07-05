@@ -1,13 +1,23 @@
-import React from "react";
-import { StatusBar, Text, View, StyleSheet } from "react-native";
-import CustomHeader from "@/components/CustomHeader";
+import React, { useState } from "react";
+import {
+  StatusBar,
+  Text,
+  View,
+  StyleSheet,
+  TouchableOpacity,
+  Modal,
+} from "react-native";
 import { FontAwesome, Ionicons } from "@expo/vector-icons";
 import { BlurView } from "expo-blur";
-import { Link, Tabs } from "expo-router";
-import CustomHomeHeader from "@/components/home/CustomHomeHeader";
 import Colors from "@/constants/Colors";
+import CustomHomeHeader from "@/components/home/CustomHomeHeader";
+import CustomHeader from "@/components/CustomHeader";
+import { Link, Tabs } from "expo-router";
+import EmergencyScreen from "./sos";
 
 const Layout = () => {
+  const [modalVisible, setModalVisible] = useState(false);
+
   return (
     <>
       <StatusBar barStyle="dark-content" translucent={false} />
@@ -65,10 +75,28 @@ const Layout = () => {
           options={{
             title: "",
             tabBarButton: () => (
-              <View style={styles.sosTab}>
-                <Link href="/(authenticated)/(tabs)/sos">
-                  <Text style={styles.sosText}>SOS</Text>
-                </Link>
+              <TouchableOpacity
+                style={styles.sosTab}
+                onPress={() => setModalVisible(true)}
+              >
+                <Text style={styles.sosText}>SOS</Text>
+              </TouchableOpacity>
+            ),
+            header: () => (
+              <View
+                style={{
+                  flexDirection: "row",
+                  justifyContent: "flex-end",
+                  padding: 16,
+                }}
+              >
+                <TouchableOpacity>
+                  <Ionicons
+                    name="close-outline"
+                    color={Colors.dark}
+                    size={30}
+                  />
+                </TouchableOpacity>
               </View>
             ),
           }}
@@ -94,6 +122,19 @@ const Layout = () => {
           }}
         />
       </Tabs>
+
+      {/* EmergencyScreen Modal */}
+      <Modal
+        animationType="slide"
+        transparent={true}
+        visible={modalVisible}
+        onRequestClose={() => setModalVisible(false)}
+      >
+        <EmergencyScreen
+          visible={modalVisible}
+          onClose={() => setModalVisible(false)}
+        />
+      </Modal>
     </>
   );
 };
@@ -114,7 +155,7 @@ const styles = StyleSheet.create({
   sosText: {
     color: "white",
     fontWeight: "bold",
-    fontSize: 20
+    fontSize: 20,
   },
 });
 
