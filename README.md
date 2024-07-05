@@ -10,22 +10,24 @@
 - BOBGALA HARRISON DIMA ----- FE21A151
 
 ## PROJECT NUMBER: TWO
-- Design and Implementation of a ------.
+- Design and Implementation of a Mobile Based Disaster Management System
   # Task One
   - Major types of mobile applications and their differences
   - Thorough review of programming languages used for mobile programming
   - How do u collect and analyse the requirements for a Mobil application (ie functional and non-functional requirements)
   - How to estimate the mobile dev cost ( after considering all analysis in the entire process)
   - Definition of mobile-dev frameworks and reviewing them considering all their different features
-  # Task Two and Three
-  - System Requirements
-  - Analysis of the Software Requirement
+  # Task Two 
+  - Requirement Gathering
+  # Task Three
+  - Requirement Analysis
    
   # Task Four
   - System Modelling and Design
 
   # Task Five
   - UI Design and Implementation
+
 
   # Task Six
   - Database Implementation
