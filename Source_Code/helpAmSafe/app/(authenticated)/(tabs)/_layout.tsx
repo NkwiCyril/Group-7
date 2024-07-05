@@ -6,6 +6,7 @@ import { FontAwesome } from "@expo/vector-icons";
 import { BlurView } from "expo-blur";
 import { Tabs } from "expo-router";
 import CustomHomeHeader from "@/components/home/CustomHomeHeader";
+import Colors from "@/constants/Colors";
 
 const Layout = () => {
   return (
@@ -32,7 +33,7 @@ const Layout = () => {
             />
           ),
           tabBarStyle: {
-            backgroundColor: "transparent",
+            backgroundColor: Colors.white,
             position: "absolute",
             bottom: 0,
             left: 0,
@@ -46,7 +47,7 @@ const Layout = () => {
         <Tabs.Screen
           name="home"
           options={{
-            title: "home",
+            title: "Home",
             tabBarIcon: ({ size, color }) => (
               <FontAwesome name="home" size={size} color={color} />
             ),
@@ -56,29 +57,25 @@ const Layout = () => {
         <Tabs.Screen
           name="prepare"
           options={{
-<<<<<<< HEAD:Task 5/helpAmSafe/app/(authenticated)/(tabs)/_layout.tsx
             title: "Prepare",
-=======
-            title: "prepare",
->>>>>>> 5347ea34b4121f873612da392066d0dd27190d00:Source_Code/helpAmSafe/app/(authenticated)/(tabs)/_layout.tsx
             tabBarIcon: ({ size, color }) => (
-              <FontAwesome name="line-chart" size={size} color={color} />
+              <FontAwesome name="shield" size={size} color={color} />
             ),
           }}
         />
         <Tabs.Screen
           name="recover"
           options={{
-            title: "recover",
+            title: "Recover",
             tabBarIcon: ({ size, color }) => (
-              <FontAwesome name="exchange" size={size} color={color} />
+              <FontAwesome name="line-chart" size={size} color={color} />
             ),
           }}
         />
         <Tabs.Screen
           name="map"
           options={{
-            title: "map",
+            title: "Map",
             tabBarIcon: ({ size, color }) => (
               <FontAwesome name="map" size={size} color={color} />
             ),

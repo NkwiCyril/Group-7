@@ -3,7 +3,6 @@ import {
   Text,
   StyleSheet,
   TouchableOpacity,
-  TextInput,
   Linking,
   Alert,
 } from "react-native";
@@ -17,23 +16,25 @@ import { Ionicons } from "@expo/vector-icons";
 import { Link } from "expo-router";
 
 const Banner = () => {
-  const [visible, setVisible] = useState(true);
-
   const openLocationSettings = () => {
-    Linking.openURL('app-settings:')
-      .catch(() => {
-        Alert.alert('Unable to open settings');
-      });
-    setVisible(false); // Hide the banner after the button is clicked
+    Linking.openURL("app-settings:").catch(() => {
+      Alert.alert("Unable to open settings");
+    });
   };
 
-  if (!visible) return null;
   return (
     <View style={styles.banner}>
       <Text style={styles.title}>Welcome!</Text>
-      <TouchableOpacity style={styles.myLocation} onPress={openLocationSettings}>
-        <Ionicons name="location-outline" size={20} color={Colors.white}></Ionicons>
-        <Text style={styles.subtitle}>Add Location</Text>
+      <TouchableOpacity
+        style={styles.myLocation}
+        onPress={openLocationSettings}
+      >
+        <Ionicons
+          name="location-outline"
+          size={20}
+          color={Colors.white}
+        ></Ionicons>
+        <Text style={styles.subtitle}>Add your location</Text>
       </TouchableOpacity>
     </View>
   );
@@ -41,9 +42,8 @@ const Banner = () => {
 
 const CustomHomeHeader = () => {
   //Destructure top to avoid the safeAread
-  const { top } = useSafeAreaInsets();
   return (
-    <SafeAreaView>
+    <View>
       <View style={styles.container}>
         <TouchableOpacity
           style={styles.menu}
@@ -56,20 +56,23 @@ const CustomHomeHeader = () => {
 
         <View style={styles.notMenu}>
           <Link href={"/"}>
-            <Ionicons name="options" size={25} color={Colors.dark} />
+            <Ionicons name="options-outline" size={25} color={Colors.dark} />
           </Link>
           <Link href={"/"}>
-            <Ionicons name="notifications" size={25} color={Colors.dark} />
+            <Ionicons
+              name="notifications-outline"
+              size={25}
+              color={Colors.dark}
+            />
           </Link>
           <TouchableOpacity style={styles.lang} onPress={() => {}}>
-            <Ionicons name="globe" size={25} color={Colors.dark} />
+            <Ionicons name="globe-outline" size={25} color={Colors.dark} />
             <Text>EN</Text>
           </TouchableOpacity>
         </View>
       </View>
-
       <Banner></Banner>
-    </SafeAreaView>
+    </View>
   );
 };
 
@@ -82,7 +85,7 @@ const styles = StyleSheet.create({
     // height: 60,
     backgroundColor: Colors.white,
     padding: 20,
-    borderWidth: 1,
+    // borderWidth: 1,
   },
 
   menu: {
@@ -126,7 +129,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "center",
-    paddingHorizontal: 20,
+    paddingHorizontal: 10,
     paddingVertical: 5,
     borderWidth: 1,
     borderColor: Colors.white,
@@ -138,7 +141,7 @@ const styles = StyleSheet.create({
     color: Colors.white,
     fontSize: 14,
   },
-  
+
   // searchSection: {
   //   flex: 1,
   //   flexDirection: "row",
