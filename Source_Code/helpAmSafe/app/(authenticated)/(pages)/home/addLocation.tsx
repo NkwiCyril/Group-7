@@ -47,13 +47,13 @@ const AddLocation: React.FC = () => {
           value={location}
           onChangeText={setLocation}
         />
-        <TouchableOpacity>
+        {/* <TouchableOpacity>
           <Text style={styles.googleMapsLink}>Search with google maps</Text>
-        </TouchableOpacity>
+        </TouchableOpacity> */}
       </View>
 
       <View style={styles.formGroup}>
-        <Text style={styles.label}>Picture</Text>
+        <Text style={styles.label}>Photo</Text>
         <TouchableOpacity onPress={pickImage}>
           <Text style={styles.addPhotoText}>Add Photo</Text>
         </TouchableOpacity>
@@ -91,8 +91,8 @@ const styles = StyleSheet.create({
     borderRadius: 4,
   },
   picker: {
-    height: 100,
-    // width: '100%',
+    height: 200,
+    width: '100%',
     color: Colors.dark,
     
   },
@@ -123,7 +123,7 @@ const styles = StyleSheet.create({
     marginBottom: 10,
   },
   postButton: {
-    backgroundColor: '#6200ee',
+    backgroundColor: Colors.purple,
     paddingVertical: 15,
     borderRadius: 8,
     alignItems: 'center',
