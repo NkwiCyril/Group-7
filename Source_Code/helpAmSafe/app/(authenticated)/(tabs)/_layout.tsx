@@ -5,6 +5,8 @@ import CustomHeader from "@/components/CustomHeader";
 import { FontAwesome } from "@expo/vector-icons";
 import { BlurView } from "expo-blur";
 import { Tabs } from "expo-router";
+import CustomHomeHeader from "@/components/home/CustomHomeHeader";
+import Colors from "@/constants/Colors";
 
 const Layout = () => {
   return (
@@ -31,7 +33,7 @@ const Layout = () => {
             />
           ),
           tabBarStyle: {
-            backgroundColor: "transparent",
+            backgroundColor: Colors.white,
             position: "absolute",
             bottom: 0,
             left: 0,
@@ -45,38 +47,37 @@ const Layout = () => {
         <Tabs.Screen
           name="home"
           options={{
-            title: "home",
+            title: "Home",
             tabBarIcon: ({ size, color }) => (
               <FontAwesome name="home" size={size} color={color} />
             ),
-            header: () => <CustomHeader />,
-            headerTransparent: true,
+            header: () => <CustomHomeHeader />,
           }}
         />
         <Tabs.Screen
           name="prepare"
           options={{
-            title: "prepare",
+            title: "Prepare",
             tabBarIcon: ({ size, color }) => (
-              <FontAwesome name="line-chart" size={size} color={color} />
+              <FontAwesome name="shield" size={size} color={color} />
             ),
           }}
         />
         <Tabs.Screen
           name="recover"
           options={{
-            title: "recover",
+            title: "Recover",
             tabBarIcon: ({ size, color }) => (
-              <FontAwesome name="exchange" size={size} color={color} />
+              <FontAwesome name="line-chart" size={size} color={color} />
             ),
           }}
         />
         <Tabs.Screen
           name="map"
           options={{
-            title: "map",
+            title: "Map",
             tabBarIcon: ({ size, color }) => (
-              <FontAwesome name="bitcoin" size={size} color={color} />
+              <FontAwesome name="map" size={size} color={color} />
             ),
             header: () => <CustomHeader />,
             headerTransparent: true,

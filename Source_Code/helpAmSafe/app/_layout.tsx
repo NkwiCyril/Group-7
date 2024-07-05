@@ -9,6 +9,8 @@ import Colors from "@/constants/Colors";
 import * as SecureStore from "expo-secure-store";
 import { ClerkProvider, useAuth } from "@clerk/clerk-expo";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
+import { PaperProvider } from "react-native-paper";
+import { BottomSheetModalProvider } from "@gorhom/bottom-sheet";
 
 // const queryClient = new QueryClient();
 
@@ -54,6 +56,14 @@ const InitialLayout = () => {
   const { isLoaded, isSignedIn } = useAuth();
   const segments = useSegments();
 
+  useEffect(() => {
+    console.log("Segments:", segments);
+  }, [segments]);
+
+  useEffect(() => {
+    if (error) throw error;
+  }, [error]);
+
   // Expo Router uses Error Boundaries to catch errors in the navigation tree.
   useEffect(() => {
     if (error) throw error;
@@ -65,26 +75,28 @@ const InitialLayout = () => {
     }
   }, [loaded]);
 
-   useEffect(() => {
-     if (!isLoaded) return;
-     const inAuthGroup = segments[0] === "(authenticated)";
+  useEffect(() => {
+    if (!isLoaded) return;
+    const inAuthGroup = segments[0] === "(authenticated)";
+    //  console.log(isSignedIn)
 
-     if (isSignedIn && !inAuthGroup) {
-       router.replace("/(authenticated)/(tabs)/home");
-       // } else if (
-       //   !isSignedIn &&
-       //   !segments.includes("login") &&
-       //   !segments.includes("signup") &&
-       //   !segments.includes("help") &&
-       //   !segments.includes("verify/[phone]")
-       // ) {
-       //   router.replace("/");
-     }
-   }, [isSignedIn, isLoaded, segments]);
+    if (isSignedIn && !inAuthGroup) {
+      console.log(segments);
+      router.replace("/(authenticated)/(tabs)/home");
+      // } else if (
+      //   !isSignedIn &&
+      //   !segments.includes("login") &&
+      //   !segments.includes("signup") &&
+      //   !segments.includes("help") &&
+      //   !segments.includes("verify/[phone]")
+      // ) {
+      //   router.replace("/");
+    }
+  }, [isSignedIn, isLoaded, segments]);
 
-   if (!loaded || !isLoaded) {
-     return <Text>Loading...</Text>;
-   }
+  if (!loaded || !isLoaded) {
+    return <Text>Loading...</Text>;
+  }
 
   if (!loaded) {
     return null;
@@ -94,7 +106,7 @@ const InitialLayout = () => {
     <>
       <StatusBar barStyle={"light-content"} translucent={true} />
       <Stack>
-        <Stack.Screen name="index"  />
+        <Stack.Screen name="index" />
         <Stack.Screen name="secondpage" />
         <Stack.Screen name="thirdpage" />
         <Stack.Screen name="login" />
@@ -110,11 +122,13 @@ const RootLayoutNav = () => {
       publishableKey={CLERK_PUBLISHABLE_KEY!}
       tokenCache={tokenCache}
     >
-       <GestureHandlerRootView style={{ flex: 1 }}>
+      <GestureHandlerRootView style={{ flex: 1 }}>
+        <BottomSheetModalProvider>
           <InitialLayout />
-       </GestureHandlerRootView>
-     </ClerkProvider>
+        </BottomSheetModalProvider>
+      </GestureHandlerRootView>
+    </ClerkProvider>
   );
 };
 
-export default RootLayoutNav
+export default RootLayoutNav;
