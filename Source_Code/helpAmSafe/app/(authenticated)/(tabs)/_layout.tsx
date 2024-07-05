@@ -46,7 +46,7 @@ const Layout = () => {
         <Tabs.Screen
           name="home"
           options={{
-            title: "Home",
+            title: "home",
             tabBarIcon: ({ size, color }) => (
               <FontAwesome name="home" size={size} color={color} />
             ),
@@ -56,7 +56,11 @@ const Layout = () => {
         <Tabs.Screen
           name="prepare"
           options={{
+<<<<<<< HEAD:Task 5/helpAmSafe/app/(authenticated)/(tabs)/_layout.tsx
             title: "Prepare",
+=======
+            title: "prepare",
+>>>>>>> 5347ea34b4121f873612da392066d0dd27190d00:Source_Code/helpAmSafe/app/(authenticated)/(tabs)/_layout.tsx
             tabBarIcon: ({ size, color }) => (
               <FontAwesome name="line-chart" size={size} color={color} />
             ),
@@ -65,7 +69,7 @@ const Layout = () => {
         <Tabs.Screen
           name="recover"
           options={{
-            title: "Recover",
+            title: "recover",
             tabBarIcon: ({ size, color }) => (
               <FontAwesome name="exchange" size={size} color={color} />
             ),
@@ -74,7 +78,7 @@ const Layout = () => {
         <Tabs.Screen
           name="map"
           options={{
-            title: "Map",
+            title: "map",
             tabBarIcon: ({ size, color }) => (
               <FontAwesome name="map" size={size} color={color} />
             ),
