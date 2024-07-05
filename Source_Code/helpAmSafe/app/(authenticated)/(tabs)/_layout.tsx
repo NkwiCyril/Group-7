@@ -43,9 +43,9 @@ const Layout = () => {
         }}
       >
         <Tabs.Screen
-          name="Home"
+          name="home"
           options={{
-            title: "Home",
+            title: "home",
             tabBarIcon: ({ size, color }) => (
               <FontAwesome name="home" size={size} color={color} />
             ),
@@ -54,27 +54,27 @@ const Layout = () => {
           }}
         />
         <Tabs.Screen
-          name="Prepare"
+          name="prepare"
           options={{
-            title: "Prepare",
+            title: "prepare",
             tabBarIcon: ({ size, color }) => (
               <FontAwesome name="line-chart" size={size} color={color} />
             ),
           }}
         />
         <Tabs.Screen
-          name="Recover"
+          name="recover"
           options={{
-            title: "Recover",
+            title: "recover",
             tabBarIcon: ({ size, color }) => (
               <FontAwesome name="exchange" size={size} color={color} />
             ),
           }}
         />
         <Tabs.Screen
-          name="Map"
+          name="map"
           options={{
-            title: "Map",
+            title: "map",
             tabBarIcon: ({ size, color }) => (
               <FontAwesome name="bitcoin" size={size} color={color} />
             ),
