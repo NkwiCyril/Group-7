@@ -8,18 +8,21 @@ import {
 import React from "react";
 import { BlurView } from "expo-blur";
 import Colors from "@/constants/Colors";
-import { useSafeAreaInsets } from "react-native-safe-area-context";
+import {
+  SafeAreaView,
+  useSafeAreaInsets,
+} from "react-native-safe-area-context";
 import { Ionicons } from "@expo/vector-icons";
 
 const CustomHeader = () => {
   //Destructure top to avoid the safeAread
   const { top } = useSafeAreaInsets();
   return (
-    <BlurView intensity={80} tint={"extraLight"} style={{ paddingTop: top }}>
+    <SafeAreaView>
       <View style={styles.container}>
         <TouchableOpacity style={styles.roundBtn}>
-          <Text style={{ color: "#fff", fontWeight: "500", fontSize: 16,}}>
-            SG
+          <Text style={{ color: "#fff", fontWeight: "500", fontSize: 16 }}>
+            NC
           </Text>
         </TouchableOpacity>
         <View style={styles.searchSection}>
@@ -43,7 +46,7 @@ const CustomHeader = () => {
           <Ionicons name="card" size={20} color={Colors.dark} />
         </View>
       </View>
-    </BlurView>
+    </SafeAreaView>
   );
 };
 
@@ -62,8 +65,8 @@ const styles = StyleSheet.create({
     height: 40,
     borderRadius: 20,
     backgroundColor: Colors.gray,
-    alignItems: 'center',
-    justifyContent: 'center'
+    alignItems: "center",
+    justifyContent: "center",
   },
   searchSection: {
     flex: 1,

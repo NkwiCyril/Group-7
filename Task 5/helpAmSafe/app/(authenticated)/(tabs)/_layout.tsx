@@ -5,6 +5,7 @@ import CustomHeader from "@/components/CustomHeader";
 import { FontAwesome } from "@expo/vector-icons";
 import { BlurView } from "expo-blur";
 import { Tabs } from "expo-router";
+import CustomHomeHeader from "@/components/home/CustomHomeHeader";
 
 const Layout = () => {
   return (
@@ -43,27 +44,26 @@ const Layout = () => {
         }}
       >
         <Tabs.Screen
-          name="Home"
+          name="home"
           options={{
             title: "Home",
             tabBarIcon: ({ size, color }) => (
               <FontAwesome name="home" size={size} color={color} />
             ),
-            header: () => <CustomHeader />,
-            headerTransparent: true,
+            header: () => <CustomHomeHeader />,
           }}
         />
         <Tabs.Screen
-          name="invest"
+          name="prepare"
           options={{
-            title: "Recover",
+            title: "Prepare",
             tabBarIcon: ({ size, color }) => (
               <FontAwesome name="line-chart" size={size} color={color} />
             ),
           }}
         />
         <Tabs.Screen
-          name="Recover"
+          name="recover"
           options={{
             title: "Recover",
             tabBarIcon: ({ size, color }) => (
@@ -72,11 +72,11 @@ const Layout = () => {
           }}
         />
         <Tabs.Screen
-          name="Map"
+          name="map"
           options={{
             title: "Map",
             tabBarIcon: ({ size, color }) => (
-              <FontAwesome name="bitcoin" size={size} color={color} />
+              <FontAwesome name="map" size={size} color={color} />
             ),
             header: () => <CustomHeader />,
             headerTransparent: true,

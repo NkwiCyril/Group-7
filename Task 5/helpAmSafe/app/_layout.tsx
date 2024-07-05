@@ -76,7 +76,7 @@ const InitialLayout = () => {
    useEffect(() => {
      if (!isLoaded) return;
      const inAuthGroup = segments[0] === "(authenticated)";
-     console.log(isSignedIn)
+    //  console.log(isSignedIn)
      
      router.replace("/(authenticated)/(tabs)/home");
 
