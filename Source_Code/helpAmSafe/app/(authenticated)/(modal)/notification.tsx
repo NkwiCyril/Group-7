@@ -1,3 +1,4 @@
+import Colors from "@/constants/Colors";
 import React, { useState, useEffect } from "react";
 import {
   View,
@@ -25,7 +26,7 @@ const NotificationScreen: React.FC = () => {
 
   const renderNotification: ListRenderItem<Notification> = ({ item }) => (
     <View style={styles.notificationItem}>
-      <Text style={styles.notificationMessage}>{item.message}</Text>
+      {/* <Text style={styles.notificationMessage}>{item.message}</Text> */}
     </View>
   );
 
@@ -60,7 +61,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "#ffffff",
+    backgroundColor: Colors.white,
     padding: 16,
   },
   image: {
@@ -72,7 +73,7 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: "bold",
     textAlign: "center",
-    color: "#000",
+    color: Colors.dark,
   },
   notificationSubText: {
     fontSize: 14,
