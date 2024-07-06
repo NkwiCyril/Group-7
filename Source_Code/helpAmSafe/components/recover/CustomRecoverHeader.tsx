@@ -41,7 +41,7 @@ const CustomHomeHeader = () => {
           <Link href={"/"}>
             <Ionicons name="options-outline" size={25} color={Colors.dark} />
           </Link>
-          <Link href={"/"}>
+          <Link href={"/(authenticated)/(modal)/notification.tsx"}>
             <Ionicons
               name="notifications-outline"
               size={25}

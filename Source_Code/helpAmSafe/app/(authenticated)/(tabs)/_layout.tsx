@@ -12,7 +12,7 @@ import { BlurView } from "expo-blur";
 import Colors from "@/constants/Colors";
 import CustomHomeHeader from "@/components/home/CustomHomeHeader";
 import CustomHeader from "@/components/CustomHeader";
-import { Link, Tabs } from "expo-router";
+import { Link, Stack, Tabs } from "expo-router";
 import EmergencyScreen from "./sos";
 import CustomRecoverHeader from "@/components/recover/CustomRecoverHeader";
 
