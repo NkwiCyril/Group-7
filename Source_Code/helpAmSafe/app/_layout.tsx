@@ -105,13 +105,23 @@ const InitialLayout = () => {
 
   return (
     <>
-      <StatusBar barStyle={"light-content"} translucent={true} />
+      <StatusBar barStyle={"dark-content"} translucent={false} />
       <Stack>
-        <Stack.Screen name="index" />
-        <Stack.Screen name="secondpage" />
-        <Stack.Screen name="thirdpage" />
-        <Stack.Screen name="login" />
-        <Stack.Screen name="signup" />
+        <Stack.Screen
+          name="index"
+          options={{
+            headerShown: false
+          }}
+        />
+        <Stack.Screen name="secondpage" options={{ headerShown: true }} />
+        <Stack.Screen name="thirdpage" options={{ headerShown: false }} />
+        <Stack.Screen name="login" options={{ headerShown: false }} />
+        <Stack.Screen name="signup" options={{ headerShown: false }} />
+        <Stack.Screen name="verify/[phone]" options={{ headerShown: false }} />
+        <Stack.Screen
+          name="(authenticated)/(tabs)"
+          options={{ headerShown: false}}
+        />
       </Stack>
     </>
   );

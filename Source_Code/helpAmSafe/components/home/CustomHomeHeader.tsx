@@ -43,7 +43,7 @@ const Banner = () => {
 const CustomHomeHeader = () => {
   //Destructure top to avoid the safeAread
   return (
-    <View>
+    <SafeAreaView>
       <View style={styles.container}>
         <TouchableOpacity
           style={styles.menu}
@@ -72,7 +72,7 @@ const CustomHomeHeader = () => {
         </View>
       </View>
       <Banner></Banner>
-    </View>
+    </SafeAreaView>
   );
 };
 
