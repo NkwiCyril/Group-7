@@ -3,6 +3,8 @@ import React, { useState } from 'react';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import MaterialIcon from 'react-native-vector-icons/MaterialCommunityIcons';
 import { useRouter } from 'expo-router';
+import { SafeAreaView } from 'react-native-safe-area-context';
+import Colors from '@/constants/Colors';
 
 type Emergency = {
   id: number;
@@ -40,7 +42,8 @@ const Prepare = () => {
   };
 
   return (
-    <ScrollView contentContainerStyle={styles.scrollContainer}>
+    <SafeAreaView>
+<ScrollView contentContainerStyle={styles.scrollContainer}>
       <Text style={styles.sectionHeader}>Safety Tips</Text>
       <View style={styles.grid}>
         {emergencies.map((emergency) => (
@@ -66,7 +69,7 @@ const Prepare = () => {
         <Text style={styles.sectionHeader}>More</Text>
         <TouchableOpacity style={styles.itemContainer} onPress={handleToolKitSelect}>
           <View style={styles.iconCircle}>
-            <MaterialIcon name="toolbox" size={28} color="#800080" />
+            <MaterialIcon name="toolbox" size={28} color={Colors.purple} />
           </View>
           <View style={styles.textContainer}>
             <Text style={styles.title}>ToolKit</Text>
@@ -75,7 +78,7 @@ const Prepare = () => {
         </TouchableOpacity>
         <TouchableOpacity style={styles.itemContainer} onPress={() => console.log('First Aid pressed')}>
           <View style={styles.iconCircle}>
-            <FontAwesome5 name="first-aid" size={20} color="#800080" />
+            <FontAwesome5 name="first-aid" size={20} color={Colors.purple} />
           </View>
           <View style={styles.textContainer}>
             <Text style={styles.title}>First Aid</Text>
@@ -84,6 +87,8 @@ const Prepare = () => {
         </TouchableOpacity>
       </View>
     </ScrollView>
+    </SafeAreaView>
+    
   );
 };
 
