@@ -5,11 +5,11 @@ import MapViewWithWeather from '../(modal)/location-search'
 
 const Map = () => {
   return (
-    <SafeAreaView>
+    // <SafeAreaView>
       <MapViewWithWeather>
 
       </MapViewWithWeather>
-    </SafeAreaView>
+    // </SafeAreaView>
   )
 }
 
