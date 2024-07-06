@@ -14,6 +14,7 @@ import CustomHomeHeader from "@/components/home/CustomHomeHeader";
 import CustomHeader from "@/components/CustomHeader";
 import { Link, Tabs } from "expo-router";
 import EmergencyScreen from "./sos";
+import CustomRecoverHeader from "@/components/recover/CustomRecoverHeader";
 
 const Layout = () => {
   const [modalVisible, setModalVisible] = useState(false);
@@ -108,6 +109,8 @@ const Layout = () => {
             tabBarIcon: ({ size, color }) => (
               <Ionicons name="construct-outline" size={size} color={color} />
             ),
+            header: () => <CustomRecoverHeader />,
+            headerTransparent: true,
           }}
         />
         <Tabs.Screen
