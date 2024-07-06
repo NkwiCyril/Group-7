@@ -51,7 +51,9 @@ const CustomHomeHeader = () => {
             console.log("Clicked!!");
           }}
         >
-          <Ionicons name="menu" size={25} />
+          <Link href={"/(authenticated)/(pages)/Sidebar"}>
+            <Ionicons name="menu" size={25} />
+          </Link>
         </TouchableOpacity>
 
         <View style={styles.notMenu}>
