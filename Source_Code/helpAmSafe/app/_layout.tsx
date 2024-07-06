@@ -9,13 +9,13 @@ import Colors from "@/constants/Colors";
 import * as SecureStore from "expo-secure-store";
 import { ClerkProvider, useAuth } from "@clerk/clerk-expo";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
-import { PaperProvider } from "react-native-paper";
 import { BottomSheetModalProvider } from "@gorhom/bottom-sheet";
+import { EXPO_PUBLIC_CLERK_PUBLISHABLE_KEY } from "@env";
 
 // const queryClient = new QueryClient();
 
 // Clerk needs the publishable key
-const CLERK_PUBLISHABLE_KEY = process.env.EXPO_PUBLIC_CLERK_PUBLISHABLE_KEY;
+const CLERK_PUBLISHABLE_KEY = EXPO_PUBLIC_CLERK_PUBLISHABLE_KEY;
 
 /* Cache the Clerk JWT 
 Tells Clerk to use the below mechanism to store the token */

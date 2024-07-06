@@ -15,10 +15,18 @@ import {
 import { Ionicons } from "@expo/vector-icons";
 import { Link } from "expo-router";
 
+const Banner = () => {
+  return (
+    <View style={styles.banner}>
+      <Text style={styles.title}>Disaster Recovery Tools</Text>
+    </View>
+  );
+};
+
 const CustomHomeHeader = () => {
   //Destructure top to avoid the safeAread
   return (
-    <View>
+    <SafeAreaView>
       <View style={styles.container}>
         <TouchableOpacity
           style={styles.menu}
@@ -26,10 +34,28 @@ const CustomHomeHeader = () => {
             console.log("Clicked!!");
           }}
         >
-          <Ionicons name="menu" size={30} />
+          <Ionicons name="menu" size={25} />
         </TouchableOpacity>
+
+        <View style={styles.notMenu}>
+          <Link href={"/"}>
+            <Ionicons name="options-outline" size={25} color={Colors.dark} />
+          </Link>
+          <Link href={"/"}>
+            <Ionicons
+              name="notifications-outline"
+              size={25}
+              color={Colors.dark}
+            />
+          </Link>
+          <TouchableOpacity style={styles.lang} onPress={() =>{}}>
+            <Ionicons name="globe-outline" size={25} color={Colors.dark} />
+            <Text>EN</Text>
+          </TouchableOpacity>
+        </View>
       </View>
-    </View>
+      <Banner></Banner>
+    </SafeAreaView>
   );
 };
 
@@ -40,13 +66,19 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "space-between",
     // height: 60,
-    backgroundColor: "transparent",
+    backgroundColor: Colors.white,
     padding: 20,
     // borderWidth: 1,
   },
 
   menu: {
     justifyContent: "space-between",
+  },
+
+  notMenu: {
+    flexDirection: "row",
+    alignItems: "center",
+    gap: 15,
   },
 
   lang: {
@@ -66,51 +98,16 @@ const styles = StyleSheet.create({
 
   banner: {
     backgroundColor: Colors.purple,
-    padding: 5,
+    padding: 10,
     flexDirection: "row",
     paddingHorizontal: 20,
-    justifyContent: "space-between",
+    justifyContent: "center",
     alignItems: "center",
   },
   title: {
     color: Colors.white,
     fontSize: 16,
+    fontWeight: "bold",
   },
-  myLocation: {
-    flexDirection: "row",
-    alignItems: "center",
-    justifyContent: "center",
-    paddingHorizontal: 10,
-    paddingVertical: 5,
-    borderWidth: 1,
-    borderColor: Colors.white,
-    borderRadius: 30,
-    gap: 5,
-  },
-
-  subtitle: {
-    color: Colors.white,
-    fontSize: 14,
-  },
-
-  // searchSection: {
-  //   flex: 1,
-  //   flexDirection: "row",
-  //   backgroundColor: Colors.lightGray,
-  //   borderRadius: 30,
-  //   alignItems: "center",
-  //   justifyContent: "center",
-  // },
-  // searchIcon: {
-  //   padding: 10,
-  // },
-  // input: {
-  //   flex: 1,
-  //   paddingRight: 10,
-  //   paddingBottom: 5,
-  //   paddingTop: 5,
-  //   paddingLeft: 0,
-  //   color: Colors.dark,
-  // },
 });
 export default CustomHomeHeader;
