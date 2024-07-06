@@ -3,90 +3,58 @@ import {
   Text,
   StyleSheet,
   TouchableOpacity,
-  TextInput,
+  Linking,
+  Alert,
 } from "react-native";
-import React from "react";
-import { BlurView } from "expo-blur";
+import React, { useState } from "react";
 import Colors from "@/constants/Colors";
 import {
   SafeAreaView,
   useSafeAreaInsets,
 } from "react-native-safe-area-context";
 import { Ionicons } from "@expo/vector-icons";
+import { Link } from "expo-router";
 
-const CustomHeader = () => {
+const CustomHomeHeader = () => {
   //Destructure top to avoid the safeAread
-  const { top } = useSafeAreaInsets();
   return (
-    <SafeAreaView>
-      <View style={styles.container}>
-        <TouchableOpacity style={styles.roundBtn}>
-          <Text style={{ color: "#fff", fontWeight: "500", fontSize: 16 }}>
-            NC
-          </Text>
+    <View>
+      {/* <View style={styles.container}>
+        <TouchableOpacity
+          style={styles.menu}
+          onPress={() => {
+            console.log("Clicked!!");
+          }}
+        >
+          <Ionicons name="menu" size={30} />
         </TouchableOpacity>
-        <View style={styles.searchSection}>
-          <Ionicons
-            name="search"
-            size={20}
-            color={Colors.dark}
-            style={styles.searchIcon}
-          />
-          <TextInput
-            style={styles.input}
-            placeholder="Search"
-            placeholderTextColor={Colors.dark}
-          />
-        </View>
-
-        <View style={styles.circle}>
-          <Ionicons name="stats-chart" size={20} color={Colors.dark} />
-        </View>
-        <View style={styles.circle}>
-          <Ionicons name="card" size={20} color={Colors.dark} />
-        </View>
-      </View>
-    </SafeAreaView>
+      </View> */}
+    </View>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
+    flex: 1,
     flexDirection: "row",
-    justifyContent: "center",
     alignItems: "center",
-    gap: 10,
-    height: 60,
+    justifyContent: "space-between",
+    // height: 60,
     backgroundColor: "transparent",
-    paddingHorizontal: 20,
+    padding: 20,
+    // borderWidth: 1,
   },
-  roundBtn: {
-    width: 40,
-    height: 40,
-    borderRadius: 20,
-    backgroundColor: Colors.gray,
-    alignItems: "center",
-    justifyContent: "center",
+
+  menu: {
+    justifyContent: "space-between",
   },
-  searchSection: {
-    flex: 1,
+
+  lang: {
     flexDirection: "row",
-    backgroundColor: Colors.lightGray,
-    borderRadius: 30,
     alignItems: "center",
-    justifyContent: "center",
+    gap: 3,
   },
-  searchIcon: {
-    padding: 10,
-  },
-  input: {
-    flex: 1,
-    paddingRight: 10,
-    paddingBottom: 5,
-    paddingTop: 5,
-    paddingLeft: 0,
-    color: Colors.dark,
-  },
+
   circle: {
     width: 40,
     height: 40,
@@ -95,5 +63,54 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
   },
+
+  banner: {
+    backgroundColor: Colors.purple,
+    padding: 5,
+    flexDirection: "row",
+    paddingHorizontal: 20,
+    justifyContent: "space-between",
+    alignItems: "center",
+  },
+  title: {
+    color: Colors.white,
+    fontSize: 16,
+  },
+  myLocation: {
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "center",
+    paddingHorizontal: 10,
+    paddingVertical: 5,
+    borderWidth: 1,
+    borderColor: Colors.white,
+    borderRadius: 30,
+    gap: 5,
+  },
+
+  subtitle: {
+    color: Colors.white,
+    fontSize: 14,
+  },
+
+  // searchSection: {
+  //   flex: 1,
+  //   flexDirection: "row",
+  //   backgroundColor: Colors.lightGray,
+  //   borderRadius: 30,
+  //   alignItems: "center",
+  //   justifyContent: "center",
+  // },
+  // searchIcon: {
+  //   padding: 10,
+  // },
+  // input: {
+  //   flex: 1,
+  //   paddingRight: 10,
+  //   paddingBottom: 5,
+  //   paddingTop: 5,
+  //   paddingLeft: 0,
+  //   color: Colors.dark,
+  // },
 });
-export default CustomHeader;
+export default CustomHomeHeader;
