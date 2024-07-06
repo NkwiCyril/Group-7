@@ -22,10 +22,7 @@ const MapViewWithWeather: React.FC = () => {
   const [location, setLocation] = useState<Location.LocationObject | null>(null);
   const [errorMsg, setErrorMsg] = useState<string | null>(null);
   const [weather, setWeather] = useState<WeatherData | null>(null);
-  const [hazards, setHazards] = useState([
-    { type: 'VOLCANIC ERUPTION', location: 'Mt Fako', reported: '9 days ago', updated: '18 mins ago' },
-    { type: 'HEAVY RAINFALLS / POSSIBLE FLOODS', location: 'Mt Fako', reported: '7 days ago', updated: '3 days ago' },
-  ]);
+  const [hazards, setHazards] = useState([]);
 
   useEffect(() => {
     (async () => {
@@ -113,7 +110,7 @@ const styles = StyleSheet.create({
   },
   map: {
     width: '100%',
-    height: '100%',
+    height: '80%',
   },
   searchContainer: {
     padding: 10,
