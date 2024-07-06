@@ -1,0 +1,28 @@
+{
+  "id": 2,
+  "name": "Fire",
+  "introduction": "Fires can cause severe damage and pose significant risks to life and property. Here's what you need to know to stay safe.",
+  "beforeFlood": "Prepare an emergency kit and ensure your home has working smoke detectors.",
+  "steps": [
+    {
+      "text": "Evacuate immediately if you see fire or are directed to do so by authorities.",
+      "image": "fire_1"
+    },
+    {
+      "text": "If trapped, stay low to the ground and cover your mouth with a wet cloth to avoid inhaling smoke.",
+      "image": ""
+    },
+    {
+      "text": "Use the back of your hand to touch doors before opening them to ensure they are not hot.",
+      "image": ""
+    },
+    {
+      "text": "If your clothes catch fire, stop, drop, and roll to extinguish the flames.",
+      "image": ""
+    },
+    {
+      "text": "Once safe, call 911 and inform them of your location and the fire details.",
+      "image": "fire_5"
+    }
+  ]
+}

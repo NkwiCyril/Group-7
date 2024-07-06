@@ -1,0 +1,28 @@
+{
+  "id": 4,
+  "name": "Landslide",
+  "introduction": "Landslides can occur suddenly and with little warning. Here's what you need to know to stay safe.",
+  "beforeFlood": "Stay alert to changes in the landscape and monitor local weather reports.",
+  "steps": [
+    {
+      "text": "Move away from the path of a landslide as quickly as possible.",
+      "image": ""
+    },
+    {
+      "text": "If escape is not possible, curl into a tight ball and protect your head.",
+      "image": ""
+    },
+    {
+      "text": "Stay alert for unusual sounds that might indicate moving debris, such as trees cracking or boulders knocking together.",
+      "image": "landslide_3"
+    },
+    {
+      "text": "Be aware that landslides can occur during and after heavy rains, earthquakes, volcanic eruptions, or as a result of human activity.",
+      "image": "landslide_4"
+    },
+    {
+      "text": "Avoid river valleys and low-lying areas during and after heavy rains or when conditions indicate possible landslides.",
+      "image": ""
+    }
+  ]
+}

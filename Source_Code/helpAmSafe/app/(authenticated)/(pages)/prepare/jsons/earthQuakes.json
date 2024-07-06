@@ -1,0 +1,28 @@
+{
+  "id": 3,
+  "name": "Earthquake",
+  "introduction": "Earthquakes can occur without warning and cause significant structural damage. Here's what you need to know to stay safe.",
+  "beforeFlood": "Identify safe places in each room, such as under sturdy furniture or against an interior wall.",
+  "steps": [
+    {
+      "text": "Drop to the ground, take cover by getting under a sturdy table or other piece of furniture, and hold on until the shaking stops.",
+      "image": "earthquake_1"
+    },
+    {
+      "text": "Stay away from glass, windows, outside doors and walls, and anything that could fall.",
+      "image": ""
+    },
+    {
+      "text": "If you are outdoors, move away from buildings, streetlights, and utility wires.",
+      "image": "earthquake_3"
+    },
+    {
+      "text": "If you are in a moving vehicle, stop as quickly and safely as possible and stay in the vehicle.",
+      "image": ""
+    },
+    {
+      "text": "Be prepared for aftershocks and plan where you will take cover when they occur.",
+      "image": ""
+    }
+  ]
+}
