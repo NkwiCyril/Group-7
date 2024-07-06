@@ -1,0 +1,28 @@
+{
+  "id": 5,
+  "name": "Tornado",
+  "introduction": "Tornadoes can cause extensive damage and pose significant risks to life. Here's what you need to know to stay safe.",
+  "beforeFlood": "Know your area's tornado risk and have a plan in place.",
+  "steps": [
+    {
+      "text": "Seek shelter immediately in a basement or an interior room on the lowest floor of a sturdy building.",
+      "image": "tornado_1"
+    },
+    {
+      "text": "Avoid windows and cover yourself with a mattress or heavy blankets.",
+      "image": ""
+    },
+    {
+      "text": "If you are in a vehicle, mobile home, or outdoors, move to the closest substantial shelter and protect yourself from flying debris.",
+      "image": ""
+    },
+    {
+      "text": "Do not try to outrun a tornado in your vehicle; instead, seek shelter in a nearby sturdy building.",
+      "image": ""
+    },
+    {
+      "text": "Stay informed by listening to NOAA Weather Radio or local news for updates and instructions.",
+      "image": "tornado_5"
+    }
+  ]
+}

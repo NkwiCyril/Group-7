@@ -1,0 +1,125 @@
+import React from 'react';
+import { View, Text, ScrollView, TouchableOpacity, StyleSheet, Image } from 'react-native';
+import { useLocalSearchParams } from 'expo-router';
+
+
+const FloodGuide = ({  }) => {
+    const { emergencyName, emergencyId } = useLocalSearchParams();
+
+    
+    return (
+    <ScrollView contentContainerStyle={styles.scrollContainer}>
+      <Text style={styles.header}>Introduction</Text>
+      <Text style={styles.paragraph}>
+        Flash floods can unfold in moments and wreak havoc. Here's what you need to know before and during a flood, since preparation can be critical and life-saving.
+      </Text>
+      <Text style={styles.subHeader}>Things to do before a flood</Text>
+      <Text style={styles.paragraph}>
+        Gather emergency supplies and ensure to keep important documents in a plastic bag which can easily be taken out.
+      </Text>
+      <TouchableOpacity style={styles.button}>
+        <Text style={styles.buttonText}>View kit list here</Text>
+      </TouchableOpacity>
+      <Text style={styles.subHeader}>Things to do during a flood</Text>
+      <View style={styles.paragraphContainer}>
+        <Text style={styles.number}>1. </Text>
+        <Text style={styles.paragraph}>
+          Get to higher ground, especially if you live in a flood-prone or low-lying area.
+        </Text>
+      </View>
+      <Image source={require('../../../../assets/images/rain_drops.jpg')} style={styles.image} />
+      <View style={styles.paragraphContainer}>
+        <Text style={styles.number}>2. </Text>
+        <Text style={styles.paragraph}>
+          Obey evacuation orders. If authorities tell you to evacuate, do it immediately. Lock your home and disconnect utilities and appliances if you have time.
+        </Text>
+      </View>
+      <Image source={require('../../../../assets/images/rain_drops.jpg')} style={styles.image} />
+      <View style={styles.paragraphContainer}>
+        <Text style={styles.number}>3. </Text>
+        <Text style={styles.paragraph}>
+          Practice electrical safety. If water levels rise to cover electrical outlets or cords, do not enter the room or your basement. Stay out of water that may have electricity in it, especially if you see sparks or hear crackling or buzzing noises.
+        </Text>
+      </View>
+      <View style={styles.paragraphContainer}>
+        <Text style={styles.number}>4. </Text>
+        <Text style={styles.paragraph}>
+          Avoid floodwaters. Do not walk or drive through floodwaters. It only takes 6 inches of moving water to knock you off your feet, and 12 inches to sweep away your vehicle.
+        </Text>
+      </View>
+      <Image source={require('../../../../assets/images/rain_drops.jpg')} style={styles.image} />
+      <View style={styles.paragraphContainer}>
+        <Text style={styles.number}>5. </Text>
+        <Text style={styles.paragraph}>
+          If you're trapped by moving water, get to the highest possible point and wait.
+        </Text>
+      </View>
+      <Image source={require('../../../../assets/images/rain_drops.jpg')} style={styles.image} />
+      <View style={styles.paragraphContainer}>
+        <Text style={styles.number}>6. </Text>
+        <Text style={styles.paragraph}>
+          Do not drive into flooded roadways or around a barricade — turn around. Floodwater is often deeper than it appears and can hide hazards like sharp objects or electrical wires.
+        </Text>
+      </View>
+      <TouchableOpacity style={styles.button}>
+        <Text style={styles.buttonText}>Finish</Text>
+      </TouchableOpacity>
+    </ScrollView>
+  );
+};
+
+const styles = StyleSheet.create({
+  scrollContainer: {
+    padding: 15,
+    backgroundColor: '#fff',
+  },
+  header: {
+    fontSize: 20,
+    fontWeight: 'bold',
+    marginBottom: 10,
+    textAlign: 'center',
+  },
+  subHeader: {
+    fontSize: 18,
+    fontWeight: 'bold',
+    marginVertical: 10,
+    textAlign: 'center',
+
+  },
+  paragraph: {
+    fontSize: 16,
+    marginBottom: 10,
+    lineHeight: 22,
+  },
+  paragraphContainer: {
+    flexDirection: 'row',
+    alignItems: 'flex-start',
+    marginBottom: 10,
+  },
+  number: {
+    fontSize: 16,
+    fontWeight: 'bold',
+  },
+  button: {
+    backgroundColor: '#800080',
+    padding: 10,
+    borderRadius: 5,
+    alignItems: 'center',
+    marginVertical: 20,
+    width: '80%',
+    marginHorizontal: 'auto',
+  },
+  buttonText: {
+    color: '#fff',
+    fontSize: 16,
+    fontWeight: 'bold',
+  },
+  image: {
+    width: '100%',
+    height: 200,
+    resizeMode: 'contain',
+    marginBottom: 20,
+  },
+});
+
+export default FloodGuide;

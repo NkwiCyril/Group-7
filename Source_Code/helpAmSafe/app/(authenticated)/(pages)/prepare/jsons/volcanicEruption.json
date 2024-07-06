@@ -1,0 +1,28 @@
+{
+  "id": 6,
+  "name": "Volcanic Eruption",
+  "introduction": "Volcanic eruptions can be explosive and dangerous. Here's what you need to know to stay safe.",
+  "beforeFlood": "Familiarize yourself with the evacuation routes and prepare an emergency kit.",
+  "steps": [
+    {
+      "text": "Evacuate immediately if advised by authorities.",
+      "image": "volcanic_eruption_1"
+    },
+    {
+      "text": "Avoid areas downwind of the volcano to reduce exposure to ash and toxic gases.",
+      "image": ""
+    },
+    {
+      "text": "Stay indoors with windows and doors closed, and place damp cloths at door thresholds and other draft sources.",
+      "image": ""
+    },
+    {
+      "text": "Wear long-sleeved shirts and long pants to protect your skin from ash fall.",
+      "image": "volcanic_eruption_4"
+    },
+    {
+      "text": "Use a dust mask or hold a damp cloth over your face to help with breathing if you must go outside.",
+      "image": "volcanic_eruption_5"
+    }
+  ]
+}
