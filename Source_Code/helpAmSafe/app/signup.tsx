@@ -1,3 +1,4 @@
+import React, { useState } from "react";
 import {
   View,
   Text,
@@ -8,21 +9,20 @@ import {
   TextInput,
   Platform,
   KeyboardAvoidingView,
+  SafeAreaView,
 } from "react-native";
-import React, { useState } from "react";
-import { defaultStyles } from "@/constants/Styles";
 import { useFonts } from "expo-font";
-import { Link, router, useRouter } from "expo-router";
+import { Link, useRouter } from "expo-router";
 import Colors from "@/constants/Colors";
 import { useSignUp } from "@clerk/clerk-expo";
+import { Ionicons } from "@expo/vector-icons";
 
 const logoImage = require("../assets/images/LOGO.png");
 const welcomeImage = require("../assets/images/signUp.png");
-const countryCodeImage = require("../assets/images/mask.png");
 
-const Page = () => {
+const Page: React.FC = () => {
   // Fonts
-  const [loaded, error] = useFonts({
+  const [loaded] = useFonts({
     SpaceMono: require("../assets/fonts/SpaceMono-Regular.ttf"),
     Poppins: require("../assets/fonts/Poppins-Regular.ttf"),
   });
@@ -32,29 +32,19 @@ const Page = () => {
   }
 
   // useState to manage first name, last name, country code, and phone number
-  const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
-  const [countryCode, setCountryCode] = useState("+237");
+  const [fullName, setFullName] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
+  const [password, setPassword] = useState("");
+  const [countryCode, setCountryCode] = useState("+237");
 
   const keyboardVerticalOffset = Platform.OS == "ios" ? 80 : 0;
 
-  //implementation of clerk
-  const router = useRouter(); // We will go forward to a new page
+  const router = useRouter();
 
-  // import signUp from clerk expo
   const { signUp } = useSignUp();
 
-  //Wrap everything in the try and catch block
   const onSignup = async () => {
-    
-    //pass the full phone number and make it a string
     const fullPhoneNumber = `${countryCode}${phoneNumber}`;
-    // // Navigate to the verification page
-    // router.push({
-    //   pathname: "/verify/[phone]",
-    //   params: { phone: fullPhoneNumber },
-    // });
 
     try {
       await signUp!.create({
@@ -77,19 +67,9 @@ const Page = () => {
       behavior="padding"
       keyboardVerticalOffset={keyboardVerticalOffset}
     >
-      <View style={[defaultStyles.container, { flex: 1 }]}>
+      <View style={[styles.container, { flex: 1, paddingTop: 25 }]}>
         <Image source={logoImage} style={styles.logo} />
-
-        {/* <View
-          style={{
-            alignItems: "center",
-            position: "absolute",
-            right: "50%",
-            top: 3,
-          }}
-        >
-          <Image source={welcomeImage} style={{ width: 100, height: 100 }} />
-        </View> */}
+        {/* <Image source={welcomeImage} style={styles.welcomeImage} /> */}
 
         <Text style={[styles.text, { paddingTop: 10 }]}>
           Create your account
@@ -99,103 +79,58 @@ const Page = () => {
           <Text
             style={{ textAlign: "center", fontSize: 14, color: Colors.gray }}
           >
-            Dem go send one verification code go your phone number to verify
+            Dem go send one verification code go your phone number for verify
             your account.
           </Text>
         </View>
 
-        <Text
-          style={{
-            paddingTop: 10,
-            fontSize: 14,
-            color: Colors.gray,
-          }}
-        >
-          First Name
-        </Text>
-        <View style={styles.inputContainer}>
-          <TextInput
-            style={[
-              styles.input,
-              {
-                flex: 1,
-                fontSize: 14,
-                textAlign: "left",
-                height: 50,
-                paddingVertical: 0,
-              },
-            ]}
-            placeholder="e.g Hewet"
-            placeholderTextColor={Colors.gray}
-            value={firstName}
-            onChangeText={setFirstName}
-          />
-        </View>
+        <Text style={styles.label}>Full Name</Text>
+        <TextInput
+          style={styles.input}
+          placeholder="e.g Hewett Chia"
+          placeholderTextColor={Colors.gray}
+          value={fullName}
+          onChangeText={setFullName}
+        />
 
-        <Text
-          style={{
-            paddingTop: 10,
-            fontSize: 14,
-            color: Colors.gray,
-          }}
-        >
-          Last Name
-        </Text>
+        <Text style={styles.label}>Phone Number</Text>
         <View style={styles.inputContainer}>
           <TextInput
-            style={[
-              styles.input,
-              {
-                flex: 1,
-                fontSize: 14,
-                textAlign: "left",
-                height: 50,
-                paddingVertical: 0,
-              },
-            ]}
-            placeholder="e.g Doe"
-            placeholderTextColor={Colors.gray}
-            value={lastName}
-            onChangeText={setLastName}
-          />
-        </View>
-
-        <Text
-          style={{
-            paddingTop: 10,
-            fontSize: 14,
-            color: Colors.gray,
-          }}
-        >
-          Phone number
-        </Text>
-        <View style={styles.inputContainer}>
-          <Image source={countryCodeImage} style={styles.countryCodeImage} />
-          <TextInput
-            style={[styles.input, { fontSize: 18, textAlign: "right" }]}
+            style={[styles.input, { flex: 1, textAlign: "left" }]}
             placeholder="Country code"
             placeholderTextColor={Colors.gray}
             value={countryCode}
             onChangeText={setCountryCode}
           />
           <TextInput
-            style={[
-              styles.input,
-              {
-                flex: 1,
-                fontSize: 18,
-                textAlign: "center",
-                height: 50,
-                paddingVertical: 0,
-              },
-            ]}
-            placeholder="Enter phone Number"
+            style={[styles.input, { flex: 2, textAlign: "left" }]}
+            placeholder="Enter your phone number"
             placeholderTextColor={Colors.gray}
             keyboardType="numeric"
             value={phoneNumber}
             onChangeText={setPhoneNumber}
           />
         </View>
+
+        <Text style={styles.label}>Password</Text>
+        <TextInput
+          style={styles.input}
+          placeholder="Enter your password"
+          placeholderTextColor={Colors.gray}
+          value={password}
+          onChangeText={setPassword}
+          secureTextEntry
+        />
+
+        <TouchableOpacity
+          style={[
+            styles.pillButton,
+            phoneNumber !== "" ? styles.enabled : styles.disabled,
+          ]}
+          onPress={onSignup}
+        >
+          <Text style={styles.textButton}>Create your account</Text>
+        </TouchableOpacity>
 
         <View style={styles.signupContainer}>
           <Text>Already have an account? </Text>
@@ -204,60 +139,72 @@ const Page = () => {
           </Link>
         </View>
 
-        <View style={{ flex: 1 }}></View>
+        <Text style={styles.orRegisterText}>Or Register Using</Text>
 
-        <TouchableOpacity
-          style={[
-            defaultStyles.pillButton,
-            phoneNumber !== "" ? styles.enabled : styles.disabled,
-            { marginBottom: 20, marginTop: 12 },
-          ]}
-          onPress={onSignup}
-        >
-          <Text style={defaultStyles.textButton}>
-            Make we create your account
-          </Text>
-        </TouchableOpacity>
+        <View style={styles.socialButtonsContainer}>
+          <TouchableOpacity style={styles.socialButton}>
+            <Ionicons name="logo-facebook" size={30} color={"#1877F2"} />
+            <Text style={styles.socialButtonText}>Facebook</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.socialButton}>
+            <Ionicons name="logo-google" size={30} color={"#EA4335"} />
+            <Text style={styles.socialButtonText}>Google</Text>
+          </TouchableOpacity>
+        </View>
       </View>
     </KeyboardAvoidingView>
   );
 };
 
 const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    padding: 16,
+    backgroundColor: Colors.white,
+  },
   logo: {
-    width: 60,
-    height: 60,
+    width: 100,
+    height: 100,
+    paddingTop: 16,
+    alignSelf: "center",
+  },
+  welcomeImage: {
+    width: 150,
+    height: 150,
+    alignSelf: "center",
+    marginVertical: 20,
   },
   text: {
     textAlign: "center",
-    fontFamily: "Poppins",
     fontSize: 24,
-  },
-  heading: {
-    paddingBottom: 10,
-    fontSize: 20,
     fontWeight: "bold",
+    color: Colors.dark,
+    marginVertical: 10
   },
-  inputContainer: {
-    flexDirection: "row",
-    alignItems: "center", // Align items vertically
-    justifyContent: "flex-start",
-  },
-  countryCodeImage: {
-    width: 40,
-    height: 40,
-    position: "absolute",
-    left: 24,
-    zIndex: 9999,
+  label: {
+    paddingTop: 10,
+    fontSize: 14,
+    color: Colors.gray,
   },
   input: {
     backgroundColor: Colors.white,
     padding: 10,
     borderRadius: 10,
-    fontSize: 20,
+    fontSize: 16,
     borderColor: "#D0D5DD",
     borderWidth: 1,
-    marginRight: 10,
+    marginVertical: 8,
+  },
+  inputContainer: {
+    flexDirection: "row",
+    alignItems: "center",
+    gap: 5,
+  },
+  pillButton: {
+    padding: 15,
+    borderRadius: 25,
+    alignItems: "center",
+    marginVertical: 20,
   },
   enabled: {
     backgroundColor: Colors.purple,
@@ -265,14 +212,60 @@ const styles = StyleSheet.create({
   disabled: {
     backgroundColor: Colors.lightPurple,
   },
+  textButton: {
+    color: Colors.white,
+    fontSize: 16,
+    fontWeight: "bold",
+  },
+  termsContainer: {
+    flexDirection: "row",
+    justifyContent: "center",
+  },
+  termsText: {
+    fontSize: 14,
+    color: Colors.gray,
+  },
+  linkText: {
+    color: Colors.green,
+    textDecorationLine: "underline",
+  },
   signupContainer: {
     flexDirection: "row",
-    alignItems: "center",
-    justifyContent: "flex-start",
-    paddingTop: 10,
+    justifyContent: "center",
+    marginTop: 15,
+    marginBottom: 15,
+    fontSize: 14,
+    color: Colors.gray,
   },
   signupText: {
     color: Colors.green,
+    textDecorationLine: "underline",
+  },
+  orRegisterText: {
+    textAlign: "center",
+    marginVertical: 10,
+    fontSize: 14,
+    color: Colors.gray,
+  },
+  socialButtonsContainer: {
+    flexDirection: "row",
+    justifyContent: "space-around",
+  },
+  socialButton: {
+    backgroundColor: "transparent",
+    borderWidth: 1,
+    borderColor: Colors.gray,
+    borderRadius: 10,
+    width: "40%",
+    padding: 15,
+    alignItems: "center",
+    flexDirection: "row",
+    gap: 5,
+  },
+  socialButtonText: {
+    color: Colors.dark,
+    fontSize: 16,
+    fontWeight: "bold",
   },
 });
 
