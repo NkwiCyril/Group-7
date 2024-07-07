@@ -157,6 +157,7 @@ const Page = () => {
             onChangeText={setPhoneNumber}
           />
         </View>
+        
 
         <View style={styles.signupContainer}>
           <Text>You no get account? </Text>
