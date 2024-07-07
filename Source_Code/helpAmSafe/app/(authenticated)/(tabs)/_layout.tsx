@@ -56,6 +56,7 @@ const Layout = () => {
               <Ionicons name="home" size={size} color={color} />
             ),
             header: () => <CustomHomeHeader />,
+            tabBarActiveTintColor: Colors.purple
           }}
         />
         <Tabs.Screen
@@ -69,6 +70,8 @@ const Layout = () => {
                 color={color}
               />
             ),
+            headerShown: false,
+            tabBarActiveTintColor: Colors.purple
           }}
         />
         <Tabs.Screen
@@ -100,6 +103,8 @@ const Layout = () => {
                 </TouchableOpacity>
               </View>
             ),
+            headerShown: false,
+            tabBarActiveTintColor: Colors.purple
           }}
         />
         <Tabs.Screen
@@ -111,6 +116,7 @@ const Layout = () => {
             ),
             header: () => <CustomRecoverHeader />,
             headerTransparent: true,
+            tabBarActiveTintColor: Colors.purple
           }}
         />
         <Tabs.Screen
@@ -122,6 +128,8 @@ const Layout = () => {
             ),
             header: () => <CustomHeader />,
             headerTransparent: true,
+            headerShown: false,
+            tabBarActiveTintColor: Colors.purple
           }}
         />
       </Tabs>
