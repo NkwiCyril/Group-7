@@ -40,7 +40,8 @@ const MapViewWithWeather: React.FC = () => {
 
   const getWeather = async (latitude: number, longitude: number) => {
     try {
-      const response = await axios.get(`https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${OPENWEATHERMAP_API_KEY}`);
+      // const response = await axios.get(`https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${OPENWEATHERMAP_API_KEY}`);
+      const response = await axios.get(`https://api.openweathermap.org/data/3.0/onecall?lat=${latitude}&lon=${longitude}&appid=${OPENWEATHERMAP_API_KEY}`)
       setWeather(response.data);
     } catch (error) {
       console.error(error);
@@ -91,12 +92,7 @@ const MapViewWithWeather: React.FC = () => {
           data={hazards}
           keyExtractor={(item, index) => index.toString()}
           renderItem={({ item }) => (
-            <HazardPrediction
-              type={item.type}
-              location={item.location}
-              reported={item.reported}
-              updated={item.updated}
-            />
+            <View></View>
           )}
         />
       </View>
