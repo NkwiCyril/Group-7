@@ -14,6 +14,7 @@ import {
 } from "react-native-safe-area-context";
 import { Ionicons } from "@expo/vector-icons";
 import { Link } from "expo-router";
+import DropDownPicker from "react-native-dropdown-picker";
 
 const Banner = () => {
   const openLocationSettings = () => {
@@ -41,6 +42,13 @@ const Banner = () => {
 };
 
 const CustomHomeHeader = () => {
+  const [open, setOpen] = useState(false);
+  const [value, setValue] = useState(null);
+  const [items, setItems] = useState([
+    { label: "EN", value: "en" },
+    { label: "FR", value: "fr" },
+    // Add more languages as needed
+  ]);
   //Destructure top to avoid the safeAread
   return (
     <SafeAreaView>
@@ -57,9 +65,9 @@ const CustomHomeHeader = () => {
         </TouchableOpacity>
 
         <View style={styles.notMenu}>
-          <Link href={"(authenticated)/(modal)/option"}>
+          {/* <Link href={"(authenticated)/(modal)/option"}>
             <Ionicons name="options-outline" size={25} color={Colors.dark} />
-          </Link>
+          </Link> */}
           <Link href={"(authenticated)/(modal)/notification"}>
             <Ionicons
               name="notifications-outline"
@@ -68,8 +76,23 @@ const CustomHomeHeader = () => {
             />
           </Link>
           <TouchableOpacity style={styles.lang} onPress={() => {}}>
-            <Ionicons name="globe-outline" size={25} color={Colors.dark} />
-            <Text>EN</Text>
+            {/* <Ionicons name="globe-outline" size={25} color={Colors.dark} /> */}
+            <View style={styles.lang}>
+              <DropDownPicker
+                open={open}
+                value={value}
+                items={items}
+                setOpen={setOpen}
+                setValue={setValue}
+                setItems={setItems}
+                containerStyle={styles.dropdownContainer}
+                style={styles.dropdown}
+                placeholder="EN"
+                onChangeValue={(value) =>
+                  console.log("Selected language:", value)
+                }
+              />
+            </View>
           </TouchableOpacity>
         </View>
       </View>
@@ -79,6 +102,15 @@ const CustomHomeHeader = () => {
 };
 
 const styles = StyleSheet.create({
+  dropdownContainer: {
+    width: 80,
+    marginLeft: 5,
+  },
+  dropdown: {
+    backgroundColor: Colors.lightGray,
+    borderColor: Colors.dark,
+    borderRadius: 5,
+  },
   container: {
     flex: 1,
     flexDirection: "row",
@@ -86,7 +118,8 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
     // height: 60,
     backgroundColor: Colors.white,
-    padding: 20,
+    padding: 10,
+    paddingHorizontal: 15,
     // borderWidth: 1,
   },
 
@@ -97,7 +130,7 @@ const styles = StyleSheet.create({
   notMenu: {
     flexDirection: "row",
     alignItems: "center",
-    gap: 15,
+    gap: 10,
   },
 
   lang: {
@@ -122,6 +155,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
     justifyContent: "space-between",
     alignItems: "center",
+    zIndex: -1
   },
   title: {
     color: Colors.white,

@@ -38,9 +38,9 @@ const CustomHomeHeader = () => {
         </TouchableOpacity>
 
         <View style={styles.notMenu}>
-          <Link href={"(authenticated)/(modal)/options"}>
+          {/* <Link href={"(authenticated)/(modal)/options"}>
             <Ionicons name="options-outline" size={25} color={Colors.dark} />
-          </Link>
+          </Link> */}
           <Link href={"(authenticated)/(modal)/notification"}>
             <Ionicons
               name="notifications-outline"

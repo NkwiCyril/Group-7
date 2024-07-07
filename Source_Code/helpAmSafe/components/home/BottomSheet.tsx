@@ -6,13 +6,39 @@ import {
   useBottomSheetModal,
 } from "@gorhom/bottom-sheet";
 import { Link } from "expo-router";
-import React, { forwardRef, useCallback, useMemo } from "react";
-import { StyleSheet, View, Text } from "react-native";
+import React, { forwardRef, useCallback, useEffect, useMemo, useState } from "react";
+import { StyleSheet, View, Text, Alert } from "react-native";
 import { TouchableOpacity } from "react-native-gesture-handler";
+import { Camera } from "expo-camera";
+
 
 export type Ref = BottomSheetModal;
 
 const BottomSheet = forwardRef<Ref>((props, ref) => {
+
+  const [hasPermission, setHasPermission] = useState<boolean | null>(null);
+
+  useEffect(() => {
+    (async () => {
+      const { status } = await Camera.requestCameraPermissionsAsync();
+      setHasPermission(status === "granted");
+    })();
+  }, []);
+
+  const openCamera = async () => {
+    if (hasPermission === null) {
+      return <Text>Requesting for camera permission</Text>;
+    }
+    if (hasPermission === false) {
+      Alert.alert("No access to camera");
+      return;
+    }
+
+    Alert.alert("Camera opens");
+    
+
+  };
+
   const snapPoints = useMemo(() => ["35%"], []);
   const renderBackdrop = useCallback(
     (props: any) => (
@@ -39,6 +65,7 @@ const BottomSheet = forwardRef<Ref>((props, ref) => {
           <TouchableOpacity
             style={styles.btns}
             onPress={() => {
+              openCamera();
               dismiss();
             }}
           >

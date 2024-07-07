@@ -21,7 +21,7 @@ const Sidebar = ({ onClose }: { onClose: () => void }) => {
           size={100}
           color={Colors.white}
         />
-        <Text style={styles.profileName}>MBUH NKEM</Text>
+        <Text style={styles.profileName}>Nkwi Cyril</Text>
         <Text style={styles.profilePhone}>+23767040693</Text>
       </View>
       <TouchableOpacity style={styles.menuItem}>
