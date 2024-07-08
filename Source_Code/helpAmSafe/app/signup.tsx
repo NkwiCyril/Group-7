@@ -18,7 +18,6 @@ import { auth, firestore } from "../firebaseConfig";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { doc, setDoc } from "firebase/firestore";
 import { FirebaseError } from "firebase/app";
-import { useFocusEffect } from '@react-navigation/native';
 
 
 const logoImage = require("../assets/images/LOGO.png");
@@ -89,13 +88,10 @@ const Page: React.FC = () => {
       } else {
         setErrorMessage("An unknown error occurred. Please try again.");
       }
+    } finally {
+      setLoading(false);
     }
   };
-  useFocusEffect(
-    useCallback(() => {
-      return () => setLoading(false);
-    }, [])
-  );
 
   return (
     <KeyboardAvoidingView
@@ -248,7 +244,7 @@ const styles = StyleSheet.create({
   },
   signupText: {
     color: Colors.green,
-    textDecorationLine: "underline",
+    fontWeight: "bold",
   },
   orRegisterText: {
     textAlign: "center",
